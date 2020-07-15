@@ -38,6 +38,8 @@ public class Barra extends JPanel{
             CrearItems("fuente", "Arial");
             CrearItems("fuente", "Helvetica");
             CrearItems("fuente", "Ravie");
+            CrearItems("fuente", "Monotype Corsiva");
+            CrearItems("fuente", "Monospaced");
             CrearItems("fuente", "Consolas");
             CrearItems("fuente", "Algerian");
             CrearItems("fuente", "Century");
