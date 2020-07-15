@@ -1,21 +1,58 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package procesador_de_texto;
 
-/**
- *
- * @author 1812
- */
+import javax.swing.*;
+import java.awt.*;
+
 public class Procesador_de_Texto {
 
-    /**
-     * @param args the command line arguments
-     */
+  
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        Ventana A = new Ventana();
+        
+     //Fin de programa
     }
     
+    //VENTANA -------------------------------------------------------------------------------------------------------
+    private static class Ventana extends JFrame {
+    
+        public Ventana(){
+            
+            this.setSize(400, 400);
+            
+            
+            
+            this.setLocationRelativeTo(null);
+            
+            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            
+            //Añadimos el Panel
+                Panel panel = new Panel();
+
+                this.add(panel);
+                
+            this.setVisible(true);
+        }
+        
+     //Fin de Clase Ventana
+    }
+    
+    //PANEL PRINCIPAL--------------------------------------------------------------------------------------------
+    private static class Panel extends JPanel{
+        
+        public Panel(){
+            
+            setLayout(new BorderLayout(15, 15));
+            
+            Barra barra = new Barra();
+            
+            this.add(barra, BorderLayout.NORTH);
+  
+        }
+    
+     //Fin de Clase Panel
+    }
+    
+ //Fin de Clase   
 }
