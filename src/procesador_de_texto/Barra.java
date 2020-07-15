@@ -7,68 +7,82 @@ import javax.swing.*;
 public class Barra extends JPanel{
     
     JMenuBar Barra;
+    
+    JMenu fuente;
+    JMenu estilo;
+    JMenu tamaño;
+    
+    JTextPane texto;
         
-        public Barra(){
+        public Barra(JTextPane texto){
+            
+            this.texto = texto;
+            
 
             //Barra de Menu
             Barra = new JMenuBar();
             
             //Elementos de la Barra
             
-                JMenu fuente = new JMenu("Fuente");
-                JMenu estilo = new JMenu("Estilo");
-                JMenu tamaño = new JMenu("Tamaño");
+                fuente = new JMenu("Fuente");
+                estilo = new JMenu("Estilo");
+                tamaño = new JMenu("Tamaño");
                 
                 //Añadimos todos los Elementos a la Barra
                 Barra.add(fuente);
                 Barra.add(estilo);
                 Barra.add(tamaño);
                 
+            //FUENTE -----------------------------------------------------------
             
-            //FUENTE ------------------------------------------------------------
+            CrearItems("fuente", "Arial");
+            CrearItems("fuente", "Helvetica");
+            CrearItems("fuente", "Ravie");
+            CrearItems("fuente", "Consolas");
+            CrearItems("fuente", "Algerian");
+            CrearItems("fuente", "Century");
+            CrearItems("fuente", "Chiller");
             
-                JMenuItem helvetica = new JMenuItem("Hevetica");
-                JMenuItem arial = new JMenuItem("Arial");
-                JMenuItem consolas = new JMenuItem("Consolas");
-                JMenuItem ravie = new JMenuItem("Ravie");
-                
-                //Añadimos los Elementos
-                
-                    fuente.add(helvetica);
-                    fuente.add(arial);
-                    fuente.add(consolas);
-                    fuente.add(ravie);
-                
-                
-            //ESTILO -----------------------------------------------------------
+            //EESTILO
+            CrearItems("estilo", "Plano");
+            CrearItems("estilo", "Negrita");
+            CrearItems("estilo", "Cursiva");
+            CrearItems("estilo", "N+C");
             
-                JMenuItem plano = new JMenuItem("Plano");
-                JMenuItem negrita = new JMenuItem("Negrita");
-                JMenuItem cursiva = new JMenuItem("Cursiva");
                 
-                    
-                //Añadimos los Elementos
-                    estilo.add(plano);
-                    estilo.add(negrita);
-                    estilo.add(cursiva);
-                
+            //TAMAÑO -----------------------------------------------------------    
+            CrearItems("tamaño", "12");
+            CrearItems("tamaño", "16");
+            CrearItems("tamaño", "20");
+            CrearItems("tamaño", "24");
+            CrearItems("tamaño", "28");
+            CrearItems("tamaño", "32");
+            CrearItems("tamaño", "36");
 
-            //TAMAÑO -----------------------------------------------------
-            
-                JMenuItem T12 = new JMenuItem("12");
-                JMenuItem T16 = new JMenuItem("16");
-                JMenuItem T20 = new JMenuItem("20");
-                JMenuItem T24 = new JMenuItem("24");
-                
-                //Añadimos los Elementos
-                
-                    tamaño.add(T12);
-                    tamaño.add(T16);
-                    tamaño.add(T20);
-                    tamaño.add(T24);
-       
             //AÑADIMOS LA BARRA AL PANEL
             this.add(Barra);
+        }
+        
+        void CrearItems(String panel, String rotulo){
+            
+            JMenuItem A = new JMenuItem(rotulo);
+            
+            if(panel.equals("fuente")){
+            
+                fuente.add(A);
+            }
+            
+            if(panel.equals("estilo")){
+            
+                estilo.add(A);
+            }
+            
+            if(panel.equals("tamaño")){
+            
+                tamaño.add(A);
+            }
+            
+            A.addActionListener(new Acciones(texto, panel));
         }
     
  //Fin de Clase   

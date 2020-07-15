@@ -21,8 +21,6 @@ public class Procesador_de_Texto {
             
             this.setSize(400, 400);
             
-            
-            
             this.setLocationRelativeTo(null);
             
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,13 +39,18 @@ public class Procesador_de_Texto {
     //PANEL PRINCIPAL--------------------------------------------------------------------------------------------
     private static class Panel extends JPanel{
         
+        JTextPane panelTexto;
+        
         public Panel(){
             
-            setLayout(new BorderLayout(15, 15));
+            setLayout(new BorderLayout(15, 10));
             
-            Barra barra = new Barra();
+            panelTexto = new JTextPane();
+            
+            Barra barra = new Barra(panelTexto);
             
             this.add(barra, BorderLayout.NORTH);
+            this.add(panelTexto, BorderLayout.CENTER);
   
         }
     
