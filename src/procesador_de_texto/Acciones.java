@@ -13,20 +13,14 @@ public class Acciones implements ActionListener {
     private JTextPane texto;
     private String panel;
     
-    private static String nombre;
-    private static int estilo;
-    private static int tamaño;
+    private static String nombre = "Dialog";
+    private static int estilo = Font.PLAIN;
+    private static int tamaño = 12;
 
     public Acciones(JTextPane texto, String panel){
         
         this.texto = texto;
         this.panel = panel;
-        
-        Font A = texto.getFont();
-        
-            nombre = A.getName();
-            estilo = A.getStyle();
-            tamaño = A.getSize();
     }
 
     @Override
@@ -68,6 +62,8 @@ public class Acciones implements ActionListener {
         }
         
         texto.setFont(new Font(nombre, estilo, tamaño));
+        
+        System.out.println( texto.getFont() );
     }
  //Fin de Clase   
 }
