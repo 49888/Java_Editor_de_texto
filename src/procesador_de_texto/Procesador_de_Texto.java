@@ -3,6 +3,9 @@ package procesador_de_texto;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class Procesador_de_Texto {
 
@@ -25,12 +28,32 @@ public class Procesador_de_Texto {
             
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             
+            this.setTitle("Editor de Texto: 1812");
+            
+            cambiarIcono();
+            
             //Añadimos el Panel
                 Panel panel = new Panel();
 
                 this.add(panel);
                 
             this.setVisible(true);
+        }
+        
+        void cambiarIcono(){
+    
+            File ruta = new File("Imajenes\\64x64\\texto2.png");
+
+            Image icono = null;
+
+            try {
+                icono = ImageIO.read(ruta);
+                setIconImage(icono);
+
+            } catch (IOException ex) {
+
+                ex.getMessage();
+            }
         }
         
      //Fin de Clase Ventana
