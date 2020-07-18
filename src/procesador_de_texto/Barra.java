@@ -2,6 +2,7 @@
 package procesador_de_texto;
 
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.*;
 import javax.swing.text.*;
 
@@ -105,17 +106,17 @@ public class Barra extends JPanel{
                 edicion.add(A);
             
                 if(rotulo.equals("Copiar")){
-                
+                    A.setIcon(new ImageIcon("Imajenes\\24x24\\copiar.png"));
                     A.addActionListener(new StyledEditorKit.CopyAction());
                 }
                 
                 if(rotulo.equals("Cortar")){
-                    
+                    A.setIcon(new ImageIcon("Imajenes\\24x24\\cortar.png"));
                     A.addActionListener(new StyledEditorKit.CutAction());
                 }
                 
                 if(rotulo.equals("Pegar")){
-                
+                    A.setIcon(new ImageIcon("Imajenes\\24x24\\pegar.png"));
                     A.addActionListener(new StyledEditorKit.PasteAction());
                 }
             
@@ -126,7 +127,7 @@ public class Barra extends JPanel{
             if(panel.equals("fuente")){
             
                 fuente.add(A);
-                
+                A.setFont(new Font(rotulo, Font.PLAIN, 18));
                 A.addActionListener(new StyledEditorKit.FontFamilyAction("", rotulo));
             }
             
@@ -136,12 +137,14 @@ public class Barra extends JPanel{
                 estilo.add(A);
                 
                 if(rotulo.equals("Negrita")){
-                
+                    A.setIcon(new ImageIcon("Imajenes\\16x16\\negrita.png"));
+                    A.setFont(new Font("Dialog", Font.BOLD, 12));
                     A.addActionListener(new StyledEditorKit.BoldAction());
                 }
                 
                 if(rotulo.equals("Cursiva")){
-                
+                    A.setIcon(new ImageIcon("Imajenes\\16x16\\cursiva.png"));
+                    A.setFont(new Font("Dialog", Font.ITALIC, 12));
                     A.addActionListener(new StyledEditorKit.ItalicAction());
                 }    
             }
@@ -164,21 +167,27 @@ public class Barra extends JPanel{
                 switch(rotulo){
                 
                     case "Rojo":
+                        A.setIcon(new ImageIcon("Imajenes\\16x16\\rojo.png"));
                         B = Color.RED; break;
                                         
                     case "Azul":
+                        A.setIcon(new ImageIcon("Imajenes\\16x16\\azul.png"));
                         B = Color.BLUE; break;
                         
                     case "Celeste":
+                        A.setIcon(new ImageIcon("Imajenes\\16x16\\celeste.png"));
                         B = Color.CYAN; break;
                         
                     case "Negro":
+                        A.setIcon(new ImageIcon("Imajenes\\16x16\\negro.png"));
                         B = Color.BLACK; break;
                         
                     case "Verde":
+                        A.setIcon(new ImageIcon("Imajenes\\16x16\\verde.png"));
                         B = Color.GREEN; break;
                         
                     case "Rosa":
+                        A.setIcon(new ImageIcon("Imajenes\\16x16\\rosa.png"));
                         B = Color.PINK; break;
                 }
                 
