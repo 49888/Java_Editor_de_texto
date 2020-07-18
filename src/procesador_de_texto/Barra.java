@@ -88,6 +88,7 @@ public class Barra extends JPanel{
             CrearItems("alineacion", "Izquierda");
             CrearItems("alineacion", "Centrado");
             CrearItems("alineacion", "Derecha");
+            CrearItems("alineacion", "Justificado");
             
 
             //AÑADIMOS LA BARRA AL PANEL
@@ -162,9 +163,9 @@ public class Barra extends JPanel{
                 
                 switch(rotulo){
                 
-                    case "Rojo": 
+                    case "Rojo":
                         B = Color.RED; break;
-                        
+                                        
                     case "Azul":
                         B = Color.BLUE; break;
                         
@@ -194,13 +195,20 @@ public class Barra extends JPanel{
                 switch(rotulo){
                     
                     case "Centrado":
+                        A.setIcon(new ImageIcon("Imajenes\\24x24\\centrado.png"));
                         C = StyleConstants.ALIGN_CENTER; break;
                         
                     case "Izquierda":
+                        A.setIcon(new ImageIcon("Imajenes\\24x24\\izquierda.png"));
                         C = StyleConstants.ALIGN_LEFT; break;
                         
                     case "Derecha":
+                        A.setIcon(new ImageIcon("Imajenes\\24x24\\derecha.png"));
                         C = StyleConstants.ALIGN_RIGHT; break;
+                        
+                    case "Justificado":
+                        A.setIcon(new ImageIcon("Imajenes\\24x24\\justificacion.png"));
+                        C = StyleConstants.ALIGN_JUSTIFIED; break;
                 }
                 
                 A.addActionListener(new StyledEditorKit.AlignmentAction("", C));
