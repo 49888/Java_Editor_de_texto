@@ -43,14 +43,19 @@ public class Procesador_de_Texto {
         
         public Panel(){
             
+            //Definimos el Layout
             setLayout(new BorderLayout(15, 10));
             
-            panelTexto = new JTextPane();
+            //Definimos Los Componentes
+                panelTexto = new JTextPane();
+
+                JScrollPane panelScroll = new JScrollPane(panelTexto);
+
+                Barra barra = new Barra(panelTexto);
             
-            Barra barra = new Barra(panelTexto);
-            
-            this.add(barra, BorderLayout.NORTH);
-            this.add(panelTexto, BorderLayout.CENTER);
+            //Añadimos los Componentes al Panel Principal
+                this.add(barra, BorderLayout.NORTH);
+                this.add(panelScroll, BorderLayout.CENTER);
   
         }
     
