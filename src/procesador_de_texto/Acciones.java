@@ -37,7 +37,7 @@ public class Acciones implements ActionListener {
             
             if(origen.getText().equals("Plano")){
             
-                estilo = Font.PLAIN;
+                estilo = Font.PLAIN;   
             }
             
             if(origen.getText().equals("Negrita")){
