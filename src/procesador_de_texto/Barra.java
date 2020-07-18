@@ -2,6 +2,7 @@
 package procesador_de_texto;
 
 import javax.swing.*;
+import javax.swing.text.*;
 
 
 public class Barra extends JPanel{
@@ -46,10 +47,8 @@ public class Barra extends JPanel{
             CrearItems("fuente", "Chiller");
             
             //EESTILO
-            CrearItems("estilo", "Plano");
             CrearItems("estilo", "Negrita");
             CrearItems("estilo", "Cursiva");
-            CrearItems("estilo", "N+C");
             
                 
             //TAMAÑO -----------------------------------------------------------    
@@ -72,19 +71,34 @@ public class Barra extends JPanel{
             if(panel.equals("fuente")){
             
                 fuente.add(A);
+                
+                A.addActionListener(new StyledEditorKit.FontFamilyAction("", rotulo));
             }
             
             if(panel.equals("estilo")){
-            
+
                 estilo.add(A);
+                
+                if(rotulo.equals("Negrita")){
+                
+                    A.addActionListener(new StyledEditorKit.BoldAction());
+                }
+                
+                if(rotulo.equals("Cursiva")){
+                
+                    A.addActionListener(new StyledEditorKit.ItalicAction());
+                }
+                
             }
             
             if(panel.equals("tamaño")){
             
                 tamaño.add(A);
+                
+                A.addActionListener(new StyledEditorKit.FontSizeAction("", Integer.parseInt(rotulo)));
             }
             
-            A.addActionListener(new Acciones(texto, panel));
+            //A.addActionListener(new Acciones(texto, panel));
         }
     
  //Fin de Clase   
