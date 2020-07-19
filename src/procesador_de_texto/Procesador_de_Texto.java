@@ -59,6 +59,7 @@ public class Procesador_de_Texto {
      //Fin de Clase Ventana
     }
     
+    
     //PANEL PRINCIPAL--------------------------------------------------------------------------------------------
     private static class Panel extends JPanel{
         
