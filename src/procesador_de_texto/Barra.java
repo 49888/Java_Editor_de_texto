@@ -191,16 +191,19 @@ public class Barra extends JPanel{
             if(panel.equals("estilo")){
 
                 estilo.add(A);
-                 
+                  
                 if(rotulo.equals("Negrita")){
                     
                     A.setIcon(new ImageIcon("Imajenes\\16x16\\negrita.png"));
                     A.setFont(new Font("Dialog", Font.BOLD, 12));
                     A.addActionListener(new StyledEditorKit.BoldAction());
                     
+                    A.setAccelerator(KeyStroke.getKeyStroke("ctrl B"));
+                    
                     B.setIcon(new ImageIcon("Imajenes\\16x16\\negrita.png"));
                     B.setFont(new Font("Dialog", Font.BOLD, 12));
                     B.addActionListener(new StyledEditorKit.BoldAction());
+                    B.setToolTipText("Ctrl - B");
                 }
                 
                 if(rotulo.equals("Cursiva")){
@@ -208,10 +211,13 @@ public class Barra extends JPanel{
                     A.setIcon(new ImageIcon("Imajenes\\16x16\\cursiva.png"));
                     A.setFont(new Font("Dialog", Font.ITALIC, 12));
                     A.addActionListener(new StyledEditorKit.ItalicAction());
+
+                    A.setAccelerator(KeyStroke.getKeyStroke("ctrl I"));
                     
                     B.setIcon(new ImageIcon("Imajenes\\16x16\\cursiva.png"));
                     B.setFont(new Font("Dialog", Font.ITALIC, 12));
                     B.addActionListener(new StyledEditorKit.ItalicAction());
+                    B.setToolTipText("Ctrl - I");
                 }
                 
                 menuEmergente.add(B);
