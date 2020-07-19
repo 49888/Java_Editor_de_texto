@@ -18,6 +18,11 @@ public class Barra extends JPanel{
     JMenu color;
     JMenu alineacion;
     
+    JPopupMenu menuEmergente;
+    JMenu fuente2;
+    JMenu color2;
+    JMenu tamaño2;
+    JMenu alineacion2;
     
     JTextPane texto;
         
@@ -25,7 +30,14 @@ public class Barra extends JPanel{
             
             this.texto = texto;
             
-            
+            //Menu Emergente
+                menuEmergente = new JPopupMenu("Opciones");
+                fuente2 = new JMenu("Fuente");
+                tamaño2 = new JMenu("Tamaño");
+                color2 = new JMenu("Color");
+                alineacion2 = new JMenu("Alineacion");
+
+                texto.setComponentPopupMenu(menuEmergente);
 
             //Barra de Menu
             Barra = new JMenuBar();
@@ -33,11 +45,20 @@ public class Barra extends JPanel{
             //Elementos de la Barra
             
                 edicion = new JMenu("Edicion");
+                
                 fuente = new JMenu("Fuente");
+                fuente.setIcon(new ImageIcon("Imajenes\\16x16\\fuentes.png"));
+                
                 estilo = new JMenu("Estilo");
+                
                 tamaño = new JMenu("Tamaño");
+                tamaño.setIcon(new ImageIcon("Imajenes\\16x16\\sizeFont.png"));
+                
                 color = new JMenu("Color");
+                color.setIcon(new ImageIcon("Imajenes\\24x24\\colores.png"));
+                
                 alineacion = new JMenu("Alineacion");
+                alineacion.setIcon(new ImageIcon("Imajenes\\16x16\\alineacion.png"));
                 
                 //Añadimos todos los Elementos a la Barra
                 Barra.add(edicion);
@@ -63,6 +84,11 @@ public class Barra extends JPanel{
             CrearItems("fuente", "Century");
             CrearItems("fuente", "Chiller");
             
+            menuEmergente.addSeparator();
+            fuente2.setIcon(new ImageIcon("Imajenes\\16x16\\fuentes.png"));
+            menuEmergente.add(fuente2);
+            menuEmergente.addSeparator();
+            
             //EESTILO ----------------------------------------------------------
             CrearItems("estilo", "Negrita");
             CrearItems("estilo", "Cursiva");
@@ -77,6 +103,10 @@ public class Barra extends JPanel{
             CrearItems("tamaño", "32");
             CrearItems("tamaño", "36");
             
+            menuEmergente.addSeparator();
+            tamaño2.setIcon(new ImageIcon("Imajenes\\16x16\\sizeFont.png"));
+            menuEmergente.add(tamaño2);
+            
             //COLOR -----------------------------------------------------------
             CrearItems("color", "Negro");
             CrearItems("color", "Azul");
@@ -85,12 +115,19 @@ public class Barra extends JPanel{
             CrearItems("color", "Verde");
             CrearItems("color", "Rosa");
             
+            menuEmergente.addSeparator();
+            color2.setIcon(new ImageIcon("Imajenes\\24x24\\colores.png"));
+            menuEmergente.add(color2);
+            
             //ALINEACION
             CrearItems("alineacion", "Izquierda");
             CrearItems("alineacion", "Centrado");
             CrearItems("alineacion", "Derecha");
             CrearItems("alineacion", "Justificado");
             
+            menuEmergente.addSeparator();
+            alineacion2.setIcon(new ImageIcon("Imajenes\\16x16\\alineacion.png"));
+            menuEmergente.add(alineacion2);
 
             //AÑADIMOS LA BARRA AL PANEL
             this.add(Barra);
@@ -99,99 +136,140 @@ public class Barra extends JPanel{
         void CrearItems(String panel, String rotulo){
             
             JMenuItem A = new JMenuItem(rotulo);
-            
-            //EDICION
+            JMenuItem B = new JMenuItem(rotulo);//MenuEmergente
+
+            //EDICION -------------------------------------------------------------------------------
             if(panel.equals("edicion")){
                 
                 edicion.add(A);
-            
+ 
                 if(rotulo.equals("Copiar")){
+                    
                     A.setIcon(new ImageIcon("Imajenes\\24x24\\copiar.png"));
                     A.addActionListener(new StyledEditorKit.CopyAction());
+                    
+                    B.setIcon(new ImageIcon("Imajenes\\24x24\\copiar.png"));
+                    B.addActionListener(new StyledEditorKit.CopyAction());
                 }
                 
                 if(rotulo.equals("Cortar")){
+                    
                     A.setIcon(new ImageIcon("Imajenes\\24x24\\cortar.png"));
                     A.addActionListener(new StyledEditorKit.CutAction());
+                    
+                    B.setIcon(new ImageIcon("Imajenes\\24x24\\cortar.png"));
+                    B.addActionListener(new StyledEditorKit.CutAction());
                 }
                 
                 if(rotulo.equals("Pegar")){
+                    
                     A.setIcon(new ImageIcon("Imajenes\\24x24\\pegar.png"));
                     A.addActionListener(new StyledEditorKit.PasteAction());
+                    
+                    B.setIcon(new ImageIcon("Imajenes\\24x24\\pegar.png"));
+                    B.addActionListener(new StyledEditorKit.PasteAction());
                 }
-            
+                
+                menuEmergente.add(B);
             }
             
             
-            //FUENTE
+            //FUENTE ---------------------------------------------------------------------------------
             if(panel.equals("fuente")){
             
                 fuente.add(A);
+                fuente2.add(B);
+                
                 A.setFont(new Font(rotulo, Font.PLAIN, 18));
                 A.addActionListener(new StyledEditorKit.FontFamilyAction("", rotulo));
+                
+                B.setFont(new Font(rotulo, Font.PLAIN, 18));
+                B.addActionListener(new StyledEditorKit.FontFamilyAction("", rotulo)); 
             }
             
-            //ESTILO
+            //ESTILO ---------------------------------------------------------------------------------
             if(panel.equals("estilo")){
 
                 estilo.add(A);
-                
+                 
                 if(rotulo.equals("Negrita")){
+                    
                     A.setIcon(new ImageIcon("Imajenes\\16x16\\negrita.png"));
                     A.setFont(new Font("Dialog", Font.BOLD, 12));
                     A.addActionListener(new StyledEditorKit.BoldAction());
+                    
+                    B.setIcon(new ImageIcon("Imajenes\\16x16\\negrita.png"));
+                    B.setFont(new Font("Dialog", Font.BOLD, 12));
+                    B.addActionListener(new StyledEditorKit.BoldAction());
                 }
                 
                 if(rotulo.equals("Cursiva")){
+                    
                     A.setIcon(new ImageIcon("Imajenes\\16x16\\cursiva.png"));
                     A.setFont(new Font("Dialog", Font.ITALIC, 12));
                     A.addActionListener(new StyledEditorKit.ItalicAction());
-                }    
+                    
+                    B.setIcon(new ImageIcon("Imajenes\\16x16\\cursiva.png"));
+                    B.setFont(new Font("Dialog", Font.ITALIC, 12));
+                    B.addActionListener(new StyledEditorKit.ItalicAction());
+                }
+                
+                menuEmergente.add(B);
             }
             
-            //TAMAÑO
+            //TAMAÑO ---------------------------------------------------------------------------------
             if(panel.equals("tamaño")){
             
                 tamaño.add(A);
+                tamaño2.add(B);
                 
                 A.addActionListener(new StyledEditorKit.FontSizeAction("", Integer.parseInt(rotulo)));
+                B.addActionListener(new StyledEditorKit.FontSizeAction("", Integer.parseInt(rotulo)));
             }
             
-            //COLOR
+            //COLOR ----------------------------------------------------------------------------------
             if(panel.equals("color")){
             
                 color.add(A);
+                color2.add(B);
                 
-                Color B = Color.black;
+                Color color = Color.black;
                 
                 switch(rotulo){
                 
                     case "Rojo":
                         A.setIcon(new ImageIcon("Imajenes\\16x16\\rojo.png"));
-                        B = Color.RED; break;
+                        B.setIcon(new ImageIcon("Imajenes\\16x16\\rojo.png"));
+                        color = Color.RED; break;
                                         
                     case "Azul":
                         A.setIcon(new ImageIcon("Imajenes\\16x16\\azul.png"));
-                        B = Color.BLUE; break;
+                        B.setIcon(new ImageIcon("Imajenes\\16x16\\azul.png"));
+                        color = Color.BLUE; break;
                         
                     case "Celeste":
                         A.setIcon(new ImageIcon("Imajenes\\16x16\\celeste.png"));
-                        B = Color.CYAN; break;
+                        B.setIcon(new ImageIcon("Imajenes\\16x16\\celeste.png"));
+                        color = Color.CYAN; break;
                         
                     case "Negro":
                         A.setIcon(new ImageIcon("Imajenes\\16x16\\negro.png"));
-                        B = Color.BLACK; break;
+                        B.setIcon(new ImageIcon("Imajenes\\16x16\\negro.png"));
+                        color = Color.BLACK; break;
                         
                     case "Verde":
                         A.setIcon(new ImageIcon("Imajenes\\16x16\\verde.png"));
-                        B = Color.GREEN; break;
+                        B.setIcon(new ImageIcon("Imajenes\\16x16\\verde.png"));
+                        color = Color.GREEN; break;
                         
                     case "Rosa":
                         A.setIcon(new ImageIcon("Imajenes\\16x16\\rosa.png"));
-                        B = Color.PINK; break;
+                        B.setIcon(new ImageIcon("Imajenes\\16x16\\rosa.png"));
+                        color = Color.PINK; break;
                 }
                 
-                A.addActionListener(new StyledEditorKit.ForegroundAction("", B));
+                A.addActionListener(new StyledEditorKit.ForegroundAction("", color));
+                B.addActionListener(new StyledEditorKit.ForegroundAction("", color));
             }
             
             
@@ -199,28 +277,35 @@ public class Barra extends JPanel{
             if(panel.equals("alineacion")){
             
                 alineacion.add(A);
+                alineacion2.add(B);
+                
                 int C = StyleConstants.ALIGN_LEFT;
                 
                 switch(rotulo){
                     
                     case "Centrado":
                         A.setIcon(new ImageIcon("Imajenes\\24x24\\centrado.png"));
+                        B.setIcon(new ImageIcon("Imajenes\\24x24\\centrado.png"));
                         C = StyleConstants.ALIGN_CENTER; break;
                         
                     case "Izquierda":
                         A.setIcon(new ImageIcon("Imajenes\\24x24\\izquierda.png"));
+                        B.setIcon(new ImageIcon("Imajenes\\24x24\\izquierda.png"));
                         C = StyleConstants.ALIGN_LEFT; break;
                         
                     case "Derecha":
                         A.setIcon(new ImageIcon("Imajenes\\24x24\\derecha.png"));
+                        B.setIcon(new ImageIcon("Imajenes\\24x24\\derecha.png"));
                         C = StyleConstants.ALIGN_RIGHT; break;
                         
                     case "Justificado":
                         A.setIcon(new ImageIcon("Imajenes\\24x24\\justificacion.png"));
+                        B.setIcon(new ImageIcon("Imajenes\\24x24\\justificacion.png"));
                         C = StyleConstants.ALIGN_JUSTIFIED; break;
                 }
                 
                 A.addActionListener(new StyledEditorKit.AlignmentAction("", C));
+                B.addActionListener(new StyledEditorKit.AlignmentAction("", C));
             }
             
             

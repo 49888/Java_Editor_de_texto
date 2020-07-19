@@ -22,7 +22,7 @@ public class Procesador_de_Texto {
     
         public Ventana(){
             
-            this.setSize(400, 400);
+            this.setSize(500, 400);
             
             this.setLocationRelativeTo(null);
             
