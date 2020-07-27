@@ -75,11 +75,15 @@ public class Procesador_de_Texto {
 
                 JScrollPane panelScroll = new JScrollPane(panelTexto);
 
-                Barra barra = new Barra(panelTexto);
+                Barra barra = new Barra();
+                
+                MenuEmergente Menu = new MenuEmergente();
             
             //Añadimos los Componentes al Panel Principal
-                this.add(barra, BorderLayout.NORTH);
+                this.add(barra.getBarra(), BorderLayout.NORTH);
                 this.add(panelScroll, BorderLayout.CENTER);
+                
+                panelScroll.add(Menu.getMenu());
   
         }
     
