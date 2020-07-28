@@ -22,9 +22,7 @@ public class Procesador_de_Texto {
     
         public Ventana(){
             
-            this.setSize(500, 400);
-            
-            this.setLocationRelativeTo(null);
+            this.setSize(500, 400); this.setLocationRelativeTo(null);
             
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             
@@ -37,12 +35,13 @@ public class Procesador_de_Texto {
 
                 this.add(panel);
                 
-            this.setVisible(true);
+            this.setVisible(true);  
         }
         
+        //CAMCIAR EL ICONO ------------------
         void cambiarIcono(){
     
-            File ruta = new File("Imajenes\\64x64\\texto2.png");
+            File ruta = new File("Iconos\\64x64\\texto2.png");
 
             Image icono = null;
 
@@ -59,7 +58,6 @@ public class Procesador_de_Texto {
      //Fin de Clase Ventana
     }
     
-    
     //PANEL PRINCIPAL--------------------------------------------------------------------------------------------
     private static class Panel extends JPanel{
         
@@ -68,23 +66,28 @@ public class Procesador_de_Texto {
         public Panel(){
             
             //Definimos el Layout
-            setLayout(new BorderLayout(15, 10));
+                setLayout(new BorderLayout(15, 10));
             
-            //Definimos Los Componentes
+            //PANEL DE TEXTO
                 panelTexto = new JTextPane();
 
                 JScrollPane panelScroll = new JScrollPane(panelTexto);
+                
+                this.add(panelScroll, BorderLayout.CENTER);
 
+            //BARRA DE OPCIONES
                 Barra barra = new Barra();
                 
-                MenuEmergente Menu = new MenuEmergente();
-            
-            //Añadimos los Componentes al Panel Principal
-                this.add(barra.getBarra(), BorderLayout.NORTH);
-                this.add(panelScroll, BorderLayout.CENTER);
+                JPanel panelBarra = new JPanel();
                 
-                panelScroll.add(Menu.getMenu());
-  
+                panelBarra.add(barra.getBarra());
+                
+                this.add(panelBarra, BorderLayout.NORTH);
+               
+            //MENU EMERGENTE
+                MenuEmergente Menu = new MenuEmergente();
+   
+                panelTexto.setComponentPopupMenu(Menu.getMenu());
         }
     
      //Fin de Clase Panel

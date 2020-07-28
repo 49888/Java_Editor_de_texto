@@ -20,69 +20,68 @@ public class Barra {
             Barra = new JMenuBar();
 
         //Elementos de la Barra
-            edicion = new JMenu("Edicion");
+            edicion = new JMenu("Edicion"); edicion.setIcon(new ImageIcon("Iconos\\24x24\\opciones.png"));
 
-            fuente = new JMenu("Fuente"); fuente.setIcon(new ImageIcon("Imajenes\\16x16\\fuentes.png"));
+            fuente = new JMenu("Fuente"); fuente.setIcon(new ImageIcon("Iconos\\16x16\\fuentes.png"));
 
-            estilo = new JMenu("Estilo");
+            estilo = new JMenu("Estilo"); estilo.setIcon(new ImageIcon("Iconos\\24x24\\estilo.png"));
 
-            tamaño = new JMenu("Tamaño"); tamaño.setIcon(new ImageIcon("Imajenes\\16x16\\sizeFont.png"));
+            tamaño = new JMenu("Tamaño"); tamaño.setIcon(new ImageIcon("Iconos\\16x16\\sizeFont.png"));
 
-            color = new JMenu("Color"); color.setIcon(new ImageIcon("Imajenes\\24x24\\colores.png"));
+            color = new JMenu("Color"); color.setIcon(new ImageIcon("Iconos\\24x24\\colores.png"));
 
-            alineacion = new JMenu("Alineacion"); alineacion.setIcon(new ImageIcon("Imajenes\\16x16\\alineacion.png"));
+            alineacion = new JMenu("Alineacion"); alineacion.setIcon(new ImageIcon("Iconos\\16x16\\alineacion.png"));
 
             //Añadimos todos los Elementos a la Barra
             Barra.add(edicion); Barra.add(fuente); Barra.add(estilo); Barra.add(tamaño); Barra.add(color); Barra.add(alineacion);
 
         //EDICION ----------------------------------------------------------
-        edicion.add( agregarEdicion("Copiar", new ImageIcon("Imajenes\\24x24\\copiar.png")) );
-        edicion.add( agregarEdicion("Cortar", new ImageIcon("Imajenes\\24x24\\cortar.png")) );
-        edicion.add( agregarEdicion("Pegar", new ImageIcon("Imajenes\\24x24\\pegar.png")) );
+        edicion.add( Edicion("Copiar", new ImageIcon("Iconos\\24x24\\copiar.png")) );
+        edicion.add( Edicion("Cortar", new ImageIcon("Iconos\\24x24\\cortar.png")) );
+        edicion.add( Edicion("Pegar", new ImageIcon("Iconos\\24x24\\pegar.png")) );
 
         //FUENTE -----------------------------------------------------------
-        fuente.add(agregarFuente("Arial"));
-        fuente.add(agregarFuente("Helvetica"));
-        fuente.add(agregarFuente("Ravie"));
-        fuente.add(agregarFuente("Monotype Corsiva"));
-        fuente.add(agregarFuente("Monospaced"));
-        fuente.add(agregarFuente("Consolas"));
-        fuente.add(agregarFuente("Algerian"));
-        fuente.add(agregarFuente("Century"));
-        fuente.add(agregarFuente("Chiller"));
+        fuente.add( Fuente("Arial") );
+        fuente.add( Fuente("Helvetica") );
+        fuente.add( Fuente("Ravie") );
+        fuente.add( Fuente("Monotype Corsiva") );
+        fuente.add( Fuente("Monospaced") );
+        fuente.add( Fuente("Consolas") );
+        fuente.add( Fuente("Algerian") );
+        fuente.add( Fuente("Century") );
+        fuente.add( Fuente("Chiller") );
 
         //ESTILO ----------------------------------------------------------
-        estilo.add(agregarEstilo("Negrita", new ImageIcon("Imajenes\\16x16\\negrita.png")));
-        estilo.add(agregarEstilo("Cursiva", new ImageIcon("Imajenes\\16x16\\cursiva.png")));
-        estilo.add(agregarEstilo("Subrayado", null));
+        estilo.add( Estilo("Negrita", new ImageIcon("Iconos\\16x16\\negrita.png")) );
+        estilo.add( Estilo("Cursiva", new ImageIcon("Iconos\\16x16\\cursiva.png")) );
+        estilo.add( Estilo("Subrayado", new ImageIcon("Iconos\\16x16\\subrayar.png")) );
 
 
         //TAMAÑO -----------------------------------------------------------            
-        tamaño.add(agregarTamaño(12)); tamaño.add(agregarTamaño(16));
-        tamaño.add(agregarTamaño(20)); tamaño.add(agregarTamaño(24));
-        tamaño.add(agregarTamaño(28)); tamaño.add(agregarTamaño(32));
-        tamaño.add(agregarTamaño(36)); tamaño.add(agregarTamaño(40));
+        tamaño.add( Tamaño(12)); tamaño.add(Tamaño(16) );
+        tamaño.add( Tamaño(20)); tamaño.add(Tamaño(24) );
+        tamaño.add( Tamaño(28)); tamaño.add(Tamaño(32) );
+        tamaño.add( Tamaño(36)); tamaño.add(Tamaño(40) );
 
 
         //COLOR -----------------------------------------------------------
-        color.add(agregarColor("Negro", Color.BLACK, new ImageIcon("Imajenes\\16x16\\negro.png")));
-        color.add(agregarColor("Azul", Color.BLUE, new ImageIcon("Imajenes\\16x16\\azul.png")));
-        color.add(agregarColor("Rojo", Color.RED, new ImageIcon("Imajenes\\16x16\\rojo.png")));
-        color.add(agregarColor("Celeste", Color.CYAN, new ImageIcon("Imajenes\\16x16\\celeste.png")));
-        color.add(agregarColor("Verde", Color.GREEN, new ImageIcon("Imajenes\\16x16\\verde.png")));
-        color.add(agregarColor("Rosa", Color.PINK, new ImageIcon("Imajenes\\16x16\\rosa.png")));
-
+        color.add( Color("Negro", Color.BLACK, new ImageIcon("Iconos\\16x16\\negro.png")) );
+        color.add( Color("Azul", Color.BLUE, new ImageIcon("Iconos\\16x16\\azul.png")) );
+        color.add( Color("Rojo", Color.RED, new ImageIcon("Iconos\\16x16\\rojo.png")) );
+        color.add( Color("Celeste", Color.CYAN, new ImageIcon("Iconos\\16x16\\celeste.png")) );
+        color.add( Color("Verde", Color.GREEN, new ImageIcon("Iconos\\16x16\\verde.png")) );
+        color.add( Color("Rosa", Color.PINK, new ImageIcon("Iconos\\16x16\\rosa.png")) );
+ 
         
-
         //ALINEACION ------------------------------------------------------
-        alineacion.add( agregarAlineacion("Izquierda", StyleConstants.ALIGN_LEFT, new ImageIcon("Imajenes\\24x24\\izquierda.png")) );
-        alineacion.add( agregarAlineacion("Derecha", StyleConstants.ALIGN_RIGHT, new ImageIcon("Imajenes\\24x24\\derecha.png")) );
-        alineacion.add( agregarAlineacion("Centrado", StyleConstants.ALIGN_CENTER, new ImageIcon("Imajenes\\24x24\\centrado.png")) );
-        alineacion.add( agregarAlineacion("Justificado", StyleConstants.ALIGN_JUSTIFIED, new ImageIcon("Imajenes\\24x24\\justificacion.png")) );
+        alineacion.add( Alineacion("Izquierda", StyleConstants.ALIGN_LEFT, new ImageIcon("Iconos\\24x24\\izquierda.png")) );
+        alineacion.add( Alineacion("Derecha", StyleConstants.ALIGN_RIGHT, new ImageIcon("Iconos\\24x24\\derecha.png")) );
+        alineacion.add( Alineacion("Centrado", StyleConstants.ALIGN_CENTER, new ImageIcon("Iconos\\24x24\\centrado.png")) );
+        alineacion.add( Alineacion("Justificado", StyleConstants.ALIGN_JUSTIFIED, new ImageIcon("Iconos\\24x24\\justificacion.png")) );
     }
         
-          
-    protected JMenuItem agregarEdicion(String nombre, Icon icono){
+    //AGREGAR EDICION --------------------------------------------------------------------      
+    protected JMenuItem Edicion(String nombre, Icon icono){
 
         JMenuItem edicion = new JMenuItem(nombre, icono);
 
@@ -107,7 +106,8 @@ public class Barra {
         return(edicion);
     }
 
-    protected JMenuItem agregarEstilo(String nombre, Icon icono){
+    //AGREGAR ESTILO ----------------------------------------------------------------------
+    protected JMenuItem Estilo(String nombre, Icon icono){
 
         JMenuItem estilo = new JMenuItem(nombre, icono);
 
@@ -120,14 +120,12 @@ public class Barra {
                 break;
 
             case "Cursiva":
-                estilo.setIcon(new ImageIcon("Imajenes\\16x16\\cursiva.png"));
                 estilo.setFont(new Font("Dialog", Font.ITALIC, 12));
                 estilo.addActionListener(new StyledEditorKit.ItalicAction());
                 estilo.setAccelerator(KeyStroke.getKeyStroke("ctrl I"));
                 break;
 
             case "Subrayado":
-                estilo.setIcon(new ImageIcon("Imajenes\\16x16\\cursiva.png"));
                 estilo.setFont(new Font("Dialog", Font.ITALIC, 12));
                 estilo.addActionListener(new StyledEditorKit.UnderlineAction());
                 estilo.setAccelerator(KeyStroke.getKeyStroke("ctrl S"));
@@ -137,7 +135,8 @@ public class Barra {
        return(estilo);         
     }
 
-    protected JMenuItem agregarFuente(String nombre){
+    //AGREGAR FUENTE ----------------------------------------------------------------------
+    protected JMenuItem Fuente(String nombre){
 
         JMenuItem fuente = new JMenuItem(nombre);
 
@@ -147,7 +146,8 @@ public class Barra {
         return(fuente);
     }
 
-    protected JMenuItem agregarTamaño(int size){
+    //AGREGAR TAMAÑO ----------------------------------------------------------------------
+    protected JMenuItem Tamaño(int size){
 
         JMenuItem tamaño = new JMenuItem(Integer.toString(size));
 
@@ -156,7 +156,8 @@ public class Barra {
         return(tamaño);
     }
 
-    protected JMenuItem agregarColor(String nombre, Color color, Icon icono){
+    //AGREGAR COLOR -----------------------------------------------------------------------
+    protected JMenuItem Color(String nombre, Color color, Icon icono){
 
         JMenuItem colores = new JMenuItem(nombre, icono);
 
@@ -165,7 +166,8 @@ public class Barra {
         return(colores);
     }
 
-    protected JMenuItem agregarAlineacion(String nombre, int align, Icon icono){
+    //AGREGAR ALINEACION -------------------------------------------------------------------
+    protected JMenuItem Alineacion(String nombre, int align, Icon icono){
 
         JMenuItem alineacion = new JMenuItem(nombre, icono);
 
@@ -174,8 +176,7 @@ public class Barra {
         return(alineacion);
     }
  
- 
-
+    //BARRA ---------------------------
     public JMenuBar getBarra() {
         return Barra;
     }
