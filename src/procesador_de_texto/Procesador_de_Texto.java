@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import javax.imageio.ImageIO;
 
 public class Procesador_de_Texto {
@@ -41,8 +42,9 @@ public class Procesador_de_Texto {
         //CAMCIAR EL ICONO ------------------
         void cambiarIcono(){
     
-            File ruta = new File("Iconos\\64x64\\texto2.png");
-
+            //File ruta = new File();
+            URL ruta = this.getClass().getResource("Iconos/64x64/texto2.png");
+            
             Image icono = null;
 
             try {

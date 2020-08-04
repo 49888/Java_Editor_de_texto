@@ -3,6 +3,7 @@ package procesador_de_texto;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.net.URL;
 import javax.swing.*;
 import javax.swing.text.*;
 
@@ -13,6 +14,8 @@ public class Barra {
     
     private JMenu edicion; private JMenu fuente; private JMenu estilo;
     private JMenu tamaño; private JMenu color; private JMenu alineacion;
+    
+    protected URL Icono;
 
     public Barra(){
 
@@ -20,25 +23,38 @@ public class Barra {
             Barra = new JMenuBar();
 
         //Elementos de la Barra
-            edicion = new JMenu("Edicion"); edicion.setIcon(new ImageIcon("Iconos\\24x24\\opciones.png"));
+        
+            Icono = this.getClass().getResource("Iconos/24x24/opciones.png");
+            edicion = new JMenu("Edicion"); edicion.setIcon(new ImageIcon(Icono));
+            
+            Icono = this.getClass().getResource("Iconos/16x16/fuentes.png");
+            fuente = new JMenu("Fuente"); fuente.setIcon(new ImageIcon(Icono));
+            
+            Icono = this.getClass().getResource("Iconos/24x24/estilo.png");
+            estilo = new JMenu("Estilo"); estilo.setIcon(new ImageIcon(Icono));
 
-            fuente = new JMenu("Fuente"); fuente.setIcon(new ImageIcon("Iconos\\16x16\\fuentes.png"));
+            Icono = this.getClass().getResource("Iconos/16x16/sizeFont.png");
+            tamaño = new JMenu("Tamaño"); tamaño.setIcon(new ImageIcon(Icono));
 
-            estilo = new JMenu("Estilo"); estilo.setIcon(new ImageIcon("Iconos\\24x24\\estilo.png"));
+            Icono = this.getClass().getResource("Iconos/24x24/colores.png");
+            color = new JMenu("Color"); color.setIcon(new ImageIcon(Icono));
 
-            tamaño = new JMenu("Tamaño"); tamaño.setIcon(new ImageIcon("Iconos\\16x16\\sizeFont.png"));
-
-            color = new JMenu("Color"); color.setIcon(new ImageIcon("Iconos\\24x24\\colores.png"));
-
-            alineacion = new JMenu("Alineacion"); alineacion.setIcon(new ImageIcon("Iconos\\16x16\\alineacion.png"));
+            Icono = this.getClass().getResource("Iconos/16x16/alineacion.png");
+            alineacion = new JMenu("Alineacion"); alineacion.setIcon(new ImageIcon(Icono));
 
             //Añadimos todos los Elementos a la Barra
             Barra.add(edicion); Barra.add(fuente); Barra.add(estilo); Barra.add(tamaño); Barra.add(color); Barra.add(alineacion);
 
         //EDICION ----------------------------------------------------------
-        edicion.add( Edicion("Copiar", new ImageIcon("Iconos\\24x24\\copiar.png")) );
-        edicion.add( Edicion("Cortar", new ImageIcon("Iconos\\24x24\\cortar.png")) );
-        edicion.add( Edicion("Pegar", new ImageIcon("Iconos\\24x24\\pegar.png")) );
+        
+        Icono = this.getClass().getResource("Iconos/24x24/copiar.png");
+        edicion.add( Edicion("Copiar", new ImageIcon(Icono)) );
+        
+        Icono = this.getClass().getResource("Iconos/24x24/cortar.png");
+        edicion.add( Edicion("Cortar", new ImageIcon(Icono)) );
+        
+        Icono = this.getClass().getResource("Iconos/24x24/pegar.png");
+        edicion.add( Edicion("Pegar", new ImageIcon(Icono)) );
 
         //FUENTE -----------------------------------------------------------
         fuente.add( Fuente("Arial") );
@@ -52,9 +68,15 @@ public class Barra {
         fuente.add( Fuente("Chiller") );
 
         //ESTILO ----------------------------------------------------------
-        estilo.add( Estilo("Negrita", new ImageIcon("Iconos\\16x16\\negrita.png")) );
-        estilo.add( Estilo("Cursiva", new ImageIcon("Iconos\\16x16\\cursiva.png")) );
-        estilo.add( Estilo("Subrayado", new ImageIcon("Iconos\\16x16\\subrayar.png")) );
+        
+        Icono = this.getClass().getResource("Iconos/16x16/negrita.png");
+        estilo.add( Estilo("Negrita", new ImageIcon(Icono)) );
+        
+        Icono = this.getClass().getResource("Iconos/16x16/cursiva.png");
+        estilo.add( Estilo("Cursiva", new ImageIcon(Icono)) );
+        
+        Icono = this.getClass().getResource("Iconos/16x16/subrayar.png");
+        estilo.add( Estilo("Subrayado", new ImageIcon(Icono)) );
 
 
         //TAMAÑO -----------------------------------------------------------            
@@ -65,19 +87,39 @@ public class Barra {
 
 
         //COLOR -----------------------------------------------------------
-        color.add( Color("Negro", Color.BLACK, new ImageIcon("Iconos\\16x16\\negro.png")) );
-        color.add( Color("Azul", Color.BLUE, new ImageIcon("Iconos\\16x16\\azul.png")) );
-        color.add( Color("Rojo", Color.RED, new ImageIcon("Iconos\\16x16\\rojo.png")) );
-        color.add( Color("Celeste", Color.CYAN, new ImageIcon("Iconos\\16x16\\celeste.png")) );
-        color.add( Color("Verde", Color.GREEN, new ImageIcon("Iconos\\16x16\\verde.png")) );
-        color.add( Color("Rosa", Color.PINK, new ImageIcon("Iconos\\16x16\\rosa.png")) );
+        
+        Icono = this.getClass().getResource("Iconos/16x16/negro.png");
+        color.add( Color("Negro", Color.BLACK, new ImageIcon(Icono)) );
+        
+        Icono = this.getClass().getResource("Iconos/16x16/azul.png");
+        color.add( Color("Azul", Color.BLUE, new ImageIcon(Icono)) );
+        
+        Icono = this.getClass().getResource("Iconos/16x16/rojo.png");
+        color.add( Color("Rojo", Color.RED, new ImageIcon(Icono)) );
+        
+        Icono = this.getClass().getResource("Iconos/16x16/celeste.png");
+        color.add( Color("Celeste", Color.CYAN, new ImageIcon(Icono)) );
+        
+        Icono = this.getClass().getResource("Iconos/16x16/verde.png");
+        color.add( Color("Verde", Color.GREEN, new ImageIcon(Icono)) );
+        
+        Icono = this.getClass().getResource("Iconos/16x16/rosa.png");
+        color.add( Color("Rosa", Color.PINK, new ImageIcon(Icono)) );
  
         
         //ALINEACION ------------------------------------------------------
-        alineacion.add( Alineacion("Izquierda", StyleConstants.ALIGN_LEFT, new ImageIcon("Iconos\\24x24\\izquierda.png")) );
-        alineacion.add( Alineacion("Derecha", StyleConstants.ALIGN_RIGHT, new ImageIcon("Iconos\\24x24\\derecha.png")) );
-        alineacion.add( Alineacion("Centrado", StyleConstants.ALIGN_CENTER, new ImageIcon("Iconos\\24x24\\centrado.png")) );
-        alineacion.add( Alineacion("Justificado", StyleConstants.ALIGN_JUSTIFIED, new ImageIcon("Iconos\\24x24\\justificacion.png")) );
+        
+        Icono = this.getClass().getResource("Iconos/24x24/izquierda.png");
+        alineacion.add( Alineacion("Izquierda", StyleConstants.ALIGN_LEFT, new ImageIcon(Icono)) );
+        
+        Icono = this.getClass().getResource("Iconos/24x24/derecha.png");
+        alineacion.add( Alineacion("Derecha", StyleConstants.ALIGN_RIGHT, new ImageIcon(Icono)) );
+        
+        Icono = this.getClass().getResource("Iconos/24x24/centrado.png");
+        alineacion.add( Alineacion("Centrado", StyleConstants.ALIGN_CENTER, new ImageIcon(Icono)) );
+        
+        Icono = this.getClass().getResource("Iconos/24x24/justificacion.png");
+        alineacion.add( Alineacion("Justificado", StyleConstants.ALIGN_JUSTIFIED, new ImageIcon(Icono)) );
     }
         
     //AGREGAR EDICION --------------------------------------------------------------------      
