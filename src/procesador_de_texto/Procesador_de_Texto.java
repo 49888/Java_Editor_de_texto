@@ -76,7 +76,7 @@ public class Procesador_de_Texto {
                 this.add(panelScroll, BorderLayout.CENTER);
 
             //BARRA DE OPCIONES
-                Barra barra = new Barra();
+                Barra barra = new Barra(panelTexto);
                 
                 JPanel panelBarra = new JPanel();
                 

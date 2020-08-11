@@ -3,18 +3,28 @@ package procesador_de_texto;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.text.*;
 
 
 public class Barra {
     
+ //Atributos
+    private JTextPane texto;//Panel de Texto principal
+    
     private JMenuBar Barra;
     
     private JMenu edicion; private JMenu fuente; private JMenu estilo;
     private JMenu tamaño; private JMenu color; private JMenu alineacion;
+    
+ //METODOS -----------------------------------------------------------------------------------------------------
+    public Barra(){}
 
-    public Barra(){
+    public Barra(JTextPane texto){
+        
+        this.texto = texto;
 
         //Barra de Menu
             Barra = new JMenuBar();
@@ -36,6 +46,8 @@ public class Barra {
             Barra.add(edicion); Barra.add(fuente); Barra.add(estilo); Barra.add(tamaño); Barra.add(color); Barra.add(alineacion);
 
         //EDICION ----------------------------------------------------------
+        AbrirGuardar(edicion);
+        edicion.addSeparator();
         edicion.add( Edicion("Copiar", new ImageIcon("Iconos\\24x24\\copiar.png")) );
         edicion.add( Edicion("Cortar", new ImageIcon("Iconos\\24x24\\cortar.png")) );
         edicion.add( Edicion("Pegar", new ImageIcon("Iconos\\24x24\\pegar.png")) );
@@ -176,9 +188,39 @@ public class Barra {
         return(alineacion);
     }
  
-    //BARRA ---------------------------
+    //OBTENER BARRA ---------------------------
     public JMenuBar getBarra() {
         return Barra;
+    }
+    
+    //OPCIONES DE GUARDADO Y LECTURA -------------------------------------------------------
+    private void AbrirGuardar(JMenu menu){
+        
+        Archivo archivo = new Archivo(menu);
+    
+        JMenuItem abrir = new JMenuItem("Abrir", new ImageIcon("Iconos\\24x24\\abrir.png") );
+        
+        abrir.addActionListener(new ActionListener(){
+            
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                
+                archivo.leerCadena(texto);
+            }
+        });
+        
+        JMenuItem guardar = new JMenuItem("Guardar", new ImageIcon("Iconos\\24x24\\guardar.png") );
+        
+        guardar.addActionListener(new ActionListener(){
+            
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                
+                archivo.Escribir(texto);
+            }
+        });
+        
+        menu.add(abrir); menu.add(guardar);
     }
     
  //Fin de Clase 

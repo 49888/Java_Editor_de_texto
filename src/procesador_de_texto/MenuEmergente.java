@@ -9,7 +9,7 @@ public class MenuEmergente extends Barra {
     
     JPopupMenu Menu;
 
-    public MenuEmergente() {
+    public MenuEmergente(){
         
         Menu = new JPopupMenu();
         
